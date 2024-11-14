@@ -13,6 +13,6 @@ import com.mycompany.simuladorpokemon.TipoPokemon;
 public class Vegeta extends Pokemon{
     public Vegeta()
     {
-        super("Vegeta", 45, 26, TipoPokemon.Fuego);
+        super("Vegeta", 45, 26, TipoPokemon.FUEGO);
     }
 }

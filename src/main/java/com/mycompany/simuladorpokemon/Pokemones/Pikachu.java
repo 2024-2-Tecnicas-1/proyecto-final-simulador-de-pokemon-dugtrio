@@ -13,6 +13,6 @@ import com.mycompany.simuladorpokemon.TipoPokemon;
 public class Pikachu extends Pokemon{
     public Pikachu()
     {
-        super("Picachu", 35, 16, TipoPokemon.Electrico);
+        super("Picachu", 35, 16, TipoPokemon.ELECTRICO);
     }
 }

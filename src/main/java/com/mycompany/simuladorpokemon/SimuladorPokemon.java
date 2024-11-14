@@ -10,9 +10,9 @@ public class SimuladorPokemon {
         Pokemon vegeta = new Vegeta();
         Batalla batalla = new Batalla();
         
-        batalla.iniciarBatalla(pikachu, vegeta);
+        Pokemon ganador = batalla.iniciarBatalla(pikachu, vegeta);
         
-        System.out.println("Este es el tipo del pikachu: " + pikachu.getTipo().ordinal());
+        System.out.println("GANADOR: " + ganador.getNombre());
         Scanner scanner = new Scanner(System.in);
         scanner.nextInt();
     }
