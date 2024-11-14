@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.simuladorpokemon.Pokemones;
 
-/**
- *
- * @author Usuario
- */
-public class Rhyhorn {
-    
+import com.mycompany.simuladorpokemon.TipoPokemon;
+
+public class Rhyhorn extends Pokemon{
+    public Rhyhorn()
+    {
+        super("Rhyhorn",80,85,TipoPokemon.ROCA);
+    }
 }

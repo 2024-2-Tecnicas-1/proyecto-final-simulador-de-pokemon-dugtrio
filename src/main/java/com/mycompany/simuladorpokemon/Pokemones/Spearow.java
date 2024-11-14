@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.simuladorpokemon.Pokemones;
 
-/**
- *
- * @author Usuario
- */
-public class Spearow {
-    
+import com.mycompany.simuladorpokemon.TipoPokemon;
+
+
+public class Spearow extends Pokemon {
+    public Spearow()
+    {
+        super("Spearow",40,60,TipoPokemon.VOLADOR);
+    }
 }
