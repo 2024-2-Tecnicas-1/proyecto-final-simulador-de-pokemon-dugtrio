@@ -1,11 +1,10 @@
-
 package com.mycompany.simuladorpokemon.Pokemones;
 
 import com.mycompany.simuladorpokemon.TipoPokemon;
 
-public class Vulpix extends Pokemon{
-    public Vulpix()
+public class Oddish extends Pokemon{
+    public Oddish()
     {
-        super("Vulpix", 45, 26, TipoPokemon.FUEGO);
+    super("Oddish",45,50, TipoPokemon.PLANTA);    
     }
 }
