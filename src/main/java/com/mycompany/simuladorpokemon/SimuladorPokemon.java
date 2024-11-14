@@ -11,6 +11,9 @@ public class SimuladorPokemon {
         Scanner scanner = new Scanner(System.in);
         Pokemon pikachu = new Pikachu();
         Pokemon vulpix = new Vulpix();
+        Pokemon Drowzee = new Drowzee();
+        
+             
         Batalla batalla = new Batalla();
 
         System.out.println("Elige una opción:");
