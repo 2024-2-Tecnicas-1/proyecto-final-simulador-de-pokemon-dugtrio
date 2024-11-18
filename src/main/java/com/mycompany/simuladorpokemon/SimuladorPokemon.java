@@ -1,5 +1,6 @@
 package com.mycompany.simuladorpokemon;
 
+import com.mycompany.simuladorpokemon.Pokemones.Drowzee;
 import com.mycompany.simuladorpokemon.Pokemones.Pikachu;
 import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
 import com.mycompany.simuladorpokemon.Pokemones.Vulpix;
