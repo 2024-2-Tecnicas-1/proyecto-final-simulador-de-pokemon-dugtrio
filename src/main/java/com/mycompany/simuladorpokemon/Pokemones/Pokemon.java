@@ -1,18 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.simuladorpokemon.Pokemones;
 
 import com.mycompany.simuladorpokemon.EstadoPokemon;
 import com.mycompany.simuladorpokemon.MatrizDeAtaque;
 import com.mycompany.simuladorpokemon.TipoPokemon;
-import com.mycompany.simuladorpokemon.Daño;
+import com.mycompany.simuladorpokemon.TipoPokemon;
 
-/**
- *
- * @author usuario
- */
+
 public abstract class Pokemon {
 
     private String nombre;
@@ -58,7 +52,7 @@ public abstract class Pokemon {
 
     public int atacar(Pokemon oponente) {
         //double ataque = this.ataque * this.getMultiplicador(oponente);
-        double ataque = this.ataque * Daño.obtenerMultiplicadorDeDaño(this.getTipo(), oponente.getTipo());
+        double ataque = this.ataque * TipoPokemon.obtenerMultiplicadorDeDaño(this.getTipo(), oponente.getTipo());
         
         oponente.damage(ataque);
         if (oponente.getSalud() < 10) {
@@ -89,4 +83,10 @@ public abstract class Pokemon {
 
         return MatrizDeAtaque.matriz[ejeX][ejeY];
     }
+
+    @Override
+    public String toString() {
+        return "Pokemon{" + "nombre=" + nombre + ", salud=" + salud + ", ataque=" + ataque + ", tipo=" + tipo + ", estado=" + estado + '}';
+    }
+    
 }

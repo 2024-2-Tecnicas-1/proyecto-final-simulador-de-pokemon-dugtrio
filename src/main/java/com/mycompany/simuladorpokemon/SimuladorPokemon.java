@@ -1,8 +1,16 @@
 package com.mycompany.simuladorpokemon;
 
 import com.mycompany.simuladorpokemon.Pokemones.Drowzee;
+import com.mycompany.simuladorpokemon.Pokemones.Koffing;
+import com.mycompany.simuladorpokemon.Pokemones.Magnemite;
+import com.mycompany.simuladorpokemon.Pokemones.Mankey;
+import com.mycompany.simuladorpokemon.Pokemones.Meowth;
+import com.mycompany.simuladorpokemon.Pokemones.Oddish;
 import com.mycompany.simuladorpokemon.Pokemones.Pikachu;
 import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
+import com.mycompany.simuladorpokemon.Pokemones.Poliwag;
+import com.mycompany.simuladorpokemon.Pokemones.Rhyhorn;
+import com.mycompany.simuladorpokemon.Pokemones.Spearow;
 import com.mycompany.simuladorpokemon.Pokemones.Vulpix;
 import java.util.Scanner;
 
@@ -12,7 +20,15 @@ public class SimuladorPokemon {
         Scanner scanner = new Scanner(System.in);
         Pokemon pikachu = new Pikachu();
         Pokemon vulpix = new Vulpix();
-        Pokemon Drowzee = new Drowzee();
+        Pokemon drowzee = new Drowzee();
+        Pokemon koffing= new Koffing();
+        Pokemon magnemite = new Magnemite();
+        Pokemon mankey = new Mankey();
+        Pokemon meowth = new Meowth();
+        Pokemon oddish = new Oddish();
+        Pokemon poliwag = new Poliwag();
+        Pokemon rhyhorn = new Rhyhorn();
+        Pokemon spearow = new Spearow();
         
              
         Batalla batalla = new Batalla();
