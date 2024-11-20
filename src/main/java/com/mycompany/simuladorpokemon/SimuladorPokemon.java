@@ -21,7 +21,7 @@ public class SimuladorPokemon {
         Pokemon pikachu = new Pikachu();
         Pokemon vulpix = new Vulpix();
         Pokemon drowzee = new Drowzee();
-        Pokemon koffing= new Koffing();
+        Pokemon koffing = new Koffing();
         Pokemon magnemite = new Magnemite();
         Pokemon mankey = new Mankey();
         Pokemon meowth = new Meowth();
@@ -29,14 +29,13 @@ public class SimuladorPokemon {
         Pokemon poliwag = new Poliwag();
         Pokemon rhyhorn = new Rhyhorn();
         Pokemon spearow = new Spearow();
-        
-             
+
         Batalla batalla = new Batalla();
 
-        System.out.println("Elige una opción:");
-        System.out.println("1. Seleccionar Pokémon y empezar batalla");
-        System.out.println("2. Gestionar entrenadores");
-        System.out.println("3. Configurar opciones");
+        System.out.println("Elige una opcion:");
+        System.out.println("1. Seleccionar Pokemon y empezar batalla");
+        System.out.println("2. Gestionar Entrenador");
+        System.out.println("3. Gestionar Pokemones");
         int primerOpcion = scanner.nextInt();
 
         switch (primerOpcion) {
@@ -45,7 +44,7 @@ public class SimuladorPokemon {
                 System.out.println("Elige el Pokémon que deseas utilizar:");
                 System.out.println("1. Pikachu");
                 System.out.println("2. Vulpix");
-                
+
                 Pokemon[] eleccionPokemon = new Pokemon[2];
 
                 for (int i = 0; i < 2; i++) {
@@ -63,7 +62,7 @@ public class SimuladorPokemon {
                             break;
                         default:
                             System.out.println("Elección no válida, intenta de nuevo.");
-                            i--;  // Permitir que el usuario vuelva a elegir
+                            i--;
                             break;
                     }
                 }
@@ -74,14 +73,78 @@ public class SimuladorPokemon {
                 break;
             case 2:
                 // Clase entrenador
-                System.out.println("Gestión de entrenadores en desarrollo...");
+                System.out.println("Gestión de entrenador...");
+                System.out.println("Ingresa tu nombre: ");
+                String nombre = scanner.next();
+                Entrenador entrenador = new Entrenador(nombre);
+
+                int opcion;
+                do {
+                    System.out.println(" Simulador Pokémon");
+                    System.out.println("");
+                    System.out.println("1. Mostrar equipo");
+                    System.out.println("2. Agregar Pokémon al equipo");
+                    System.out.println("3. Reemplazar un Pokémon del equipo");
+                    System.out.println("4. Eliminar un Pokémon del equipo");
+                    System.out.println("5. Salir");
+                    System.out.print("Elige una opción: ");
+                    opcion = scanner.nextInt();
+
+                    switch (opcion) {
+                        case 1: // Mostrar el equipo
+                            entrenador.mostrarPokemones();
+                            break;
+
+                        case 2: // Agregar un Pokémon
+                            // System.out.println("Elige un Pokémon para agregar:");
+                           // entrenador.mostrarPokemones();
+                            //int eleccionAgregar = scanner.nextInt();
+                           // System.out.println("Elija el Pokemon que desea");
+                            // Pokemon nuevoPokemon = entrenador.reemplazarPokemon(int indice, int eleccionAgregar)
+                           // if (nuevoPokemon != null) {
+                           //     entrenador.agregarPokemon(nuevoPokemon);
+                           
+                            //}
+                            break;
+
+                        case 3: // Reemplazar un Pokémon
+                            System.out.println("Elige la posición (1-6) del Pokémon que deseas reemplazar:");
+                            entrenador.mostrarPokemones();
+                            int indiceReemplazo = scanner.nextInt() - 1;
+                            System.out.println("Elige la posicion del Pokemon que desees agregar:");
+                            // mostrarPokemones() genrales
+                           // int eleccionReemplazo = scanner.nextInt();
+                           // Pokemon pokemonReemplazo = entrenador;   //seleccionarPokemon(eleccionReemplazo);
+                            //if (pokemonReemplazo != null) {
+                            //    entrenador.reemplazarPokemon(indiceReemplazo, pokemonReemplazo);
+                            // }
+                            break;
+
+                        case 4: // Eliminar un Pokémon
+                            System.out.println("Elige la posición (1-6) del Pokémon que deseas eliminar:");
+                            entrenador.mostrarPokemones();
+                            int indiceEliminar = scanner.nextInt() - 1;
+                            entrenador.eliminarPokemon(indiceEliminar);
+                            break;
+
+                        case 5: // Salir
+                            System.out.println("¡Gracias por jugar!");
+                            break;
+                        default:
+                            System.out.println("Opción no válida. Inténtalo de nuevo.");
+                            break;
+
+                    }
+                }while (opcion != 5);
+                
                 break;
             case 3:
-                // Clase gestionar
+                // Clase Pokemones
                 System.out.println("Gestión de opciones en desarrollo...");
                 break;
             default:
                 System.out.println("Opción no válida.");
         }
+
     }
 }

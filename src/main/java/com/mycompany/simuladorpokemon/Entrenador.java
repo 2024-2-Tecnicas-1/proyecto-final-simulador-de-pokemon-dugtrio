@@ -1,52 +1,81 @@
 package com.mycompany.simuladorpokemon;
 
+import com.mycompany.simuladorpokemon.Pokemones.Drowzee;
+import com.mycompany.simuladorpokemon.Pokemones.Koffing;
+import com.mycompany.simuladorpokemon.Pokemones.Magnemite;
+import com.mycompany.simuladorpokemon.Pokemones.Mankey;
+import com.mycompany.simuladorpokemon.Pokemones.Meowth;
+import com.mycompany.simuladorpokemon.Pokemones.Oddish;
+import com.mycompany.simuladorpokemon.Pokemones.Pikachu;
 import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
+import com.mycompany.simuladorpokemon.Pokemones.Poliwag;
+import com.mycompany.simuladorpokemon.Pokemones.Rhyhorn;
+import com.mycompany.simuladorpokemon.Pokemones.Spearow;
+import com.mycompany.simuladorpokemon.Pokemones.Vulpix;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Entrenador {
-    // tener los dos entrenadores
-    // cada entrenador tenga su lista 
 
     private String nombre;
-    private ArrayList<Pokemon> pokemones;
-   
-    
+    private List<Pokemon> pokemones;
+
     public Entrenador(String nombre) {
         this.nombre = nombre;
         this.pokemones = new ArrayList<>();
+        inicializarEquipo();
     }
-    
-    public Entrenador(String nombre,ArrayList<Pokemon> pokemones) {
-        this.nombre = nombre;
-        this.pokemones = pokemones;
-    }
-    
-    
-    
-    
-    
 
-   
+    private void inicializarEquipo() {
+        for (int i = 0; i < 6; i++) {
+            this.pokemones.add(new Vulpix());
+            this.pokemones.add(new Pikachu());
+            this.pokemones.add(new Oddish());
+            this.pokemones.add(new Mankey());
+            this.pokemones.add(new Meowth());
+            this.pokemones.add(new Spearow());
+        }
+    }
+
     public boolean agregarPokemon(Pokemon pokemon) {
-        if (pokemones.size() <= 6) { // Limite de 6 pokemones por entrenador siguiendo las reglas tradicionales de un juego de pokemon
+        if (pokemones.size() < 6) {
             pokemones.add(pokemon);
             System.out.println(pokemon.getNombre() + " ha sido agregado.");
             return true;
         } else {
-            System.out.println("No se pueden agregar más Pokémon. El equipo está lleno.");
+            System.out.println("El equipo está lleno.");
             return false;
         }
     }
 
-    
+    // Método para reemplazar un Pokémon en una posición específica
+    public void reemplazarPokemon(int indice, Pokemon nuevoPokemon) {
+        if (indice >= 0 && indice < pokemones.size()) {
+            System.out.println("Reemplazando a " + pokemones.get(indice).getNombre() + " con " + nuevoPokemon.getNombre());
+            pokemones.set(indice, nuevoPokemon);
+        } else {
+            System.out.println("Índice fuera de rango. No se puede reemplazar.");
+        }
+    }
+
+    // Método para eliminar un Pokémon por índice
+    public boolean eliminarPokemon(int indice) {
+        if (indice >= 0 && indice < pokemones.size()) {
+            System.out.println(pokemones.get(indice).getNombre() + " ha sido eliminado del equipo.");
+            pokemones.remove(indice);
+            return true;
+        } else {
+            System.out.println("Índice fuera de rango. No se puede eliminar.");
+            return false;
+        }
+    }
+
     public void mostrarPokemones() {
         System.out.println("Pokémon de " + nombre + ":");
         for (Pokemon pokemon : pokemones) {
             System.out.println(pokemon.toString());
         }
     }
-
 
     public String getNombre() {
         return nombre;
