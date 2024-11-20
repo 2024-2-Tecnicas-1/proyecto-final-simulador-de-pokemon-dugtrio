@@ -1,18 +1,6 @@
 package com.mycompany.simuladorpokemon;
 
-import com.mycompany.simuladorpokemon.Pokemones.Drowzee;
-import com.mycompany.simuladorpokemon.Pokemones.Koffing;
-import com.mycompany.simuladorpokemon.Pokemones.Magnemite;
-import com.mycompany.simuladorpokemon.Pokemones.Mankey;
-import com.mycompany.simuladorpokemon.Pokemones.Meowth;
-import com.mycompany.simuladorpokemon.Pokemones.Oddish;
-import com.mycompany.simuladorpokemon.Pokemones.Pikachu;
-import com.mycompany.simuladorpokemon.Pokemones.Pokedex;
-import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
-import com.mycompany.simuladorpokemon.Pokemones.Poliwag;
-import com.mycompany.simuladorpokemon.Pokemones.Rhyhorn;
-import com.mycompany.simuladorpokemon.Pokemones.Spearow;
-import com.mycompany.simuladorpokemon.Pokemones.Vulpix;
+import com.mycompany.simuladorpokemon.Pokemones.*;
 import java.util.Scanner;
 
 public class SimuladorPokemon {
