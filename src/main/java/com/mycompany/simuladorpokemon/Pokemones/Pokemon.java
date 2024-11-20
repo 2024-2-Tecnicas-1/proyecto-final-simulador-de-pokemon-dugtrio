@@ -5,6 +5,7 @@ import com.mycompany.simuladorpokemon.EstadoPokemon;
 import com.mycompany.simuladorpokemon.MatrizDeAtaque;
 import com.mycompany.simuladorpokemon.TipoPokemon;
 import com.mycompany.simuladorpokemon.TipoPokemon;
+import java.time.LocalTime;
 
 
 public abstract class Pokemon {
@@ -14,12 +15,15 @@ public abstract class Pokemon {
     private double ataque;
     private TipoPokemon tipo;
     private EstadoPokemon estado;
+    private LocalTime horaUltimoEntrenamiento;
+    
 
     public Pokemon(String nombre, int salud, double ataque, TipoPokemon tipoPokemon) {
         this.nombre = nombre;
         this.salud = salud;
         this.ataque = ataque;
         this.tipo = tipoPokemon;
+        this.horaUltimoEntrenamiento = LocalTime.now();
     }
 
     public String getNombre() {
@@ -84,6 +88,28 @@ public abstract class Pokemon {
         return MatrizDeAtaque.matriz[ejeX][ejeY];
     }
 
+    public int incrementarSalud() {
+        salud = salud + 3;
+        System.out.println("salud mejorada: " + salud);
+        return salud;
+    }
+
+    public int incrementarAtaque() {
+        ataque = ataque + 3;
+        System.out.println("ataque mejorada: " + ataque);
+        return salud;
+    }
+    public LocalTime gethoraUltimoEntrenamiento(){
+        return horaUltimoEntrenamiento;
+    }
+    public void sethoraUltimoEntrenamiento(LocalTime horaUltimoEntrenamiento){
+        this.horaUltimoEntrenamiento = horaUltimoEntrenamiento;
+    }
+    
+    
+    
+    
+    
     @Override
     public String toString() {
         return "Pokemon{" + "nombre=" + nombre + ", salud=" + salud + ", ataque=" + ataque + ", tipo=" + tipo + ", estado=" + estado + '}';

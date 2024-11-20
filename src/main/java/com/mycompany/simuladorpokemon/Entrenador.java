@@ -1,20 +1,31 @@
 package com.mycompany.simuladorpokemon;
 
+import com.mycompany.simuladorpokemon.Pokemones.Drowzee;
+import com.mycompany.simuladorpokemon.Pokemones.Pikachu;
 import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
+import com.mycompany.simuladorpokemon.Pokemones.Rhyhorn;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Scanner;
 public class Entrenador {
     // tener los dos entrenadores
     // cada entrenador tenga su lista 
-
+    Scanner sc = new Scanner(System.in);
     private String nombre;
     private ArrayList<Pokemon> pokemones;
-   
+    private Gimnasio gimnasio;
     
     public Entrenador(String nombre) {
         this.nombre = nombre;
         this.pokemones = new ArrayList<>();
+        
+        /*
+        pokemones.add(new Pikachu());
+        pokemones.add(new Rhyhorn());
+        pokemones.add(new Drowzee());
+        */
+        
+        this.gimnasio = new Gimnasio();
     }
     
     public Entrenador(String nombre,ArrayList<Pokemon> pokemones) {
@@ -22,7 +33,15 @@ public class Entrenador {
         this.pokemones = pokemones;
     }
     
-    
+    public void EntrenarPokemon(){
+        System.out.println("Seleccione un Pokemon");
+        for(int i = 0; i < pokemones.size(); i++){
+            System.out.println(i+1 + " " + pokemones.get(i).getNombre());
+        }
+        int IndexPokemonElegido = sc.nextInt() - 1;
+        Pokemon PokemonElegido = pokemones.get(IndexPokemonElegido);
+        gimnasio.EntrenarAtaque(PokemonElegido);
+    }
     
     
     

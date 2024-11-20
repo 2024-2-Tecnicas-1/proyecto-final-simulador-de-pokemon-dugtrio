@@ -80,6 +80,9 @@ public class SimuladorPokemon {
                 // Clase gestionar
                 System.out.println("Gestión de opciones en desarrollo...");
                 break;
+            case 4:
+                Entrenador entrenador = new Entrenador("Raul Arturo");
+                entrenador.EntrenarPokemon();
             default:
                 System.out.println("Opción no válida.");
         }
