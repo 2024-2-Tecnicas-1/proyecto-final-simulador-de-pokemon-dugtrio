@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Entrenador {
-    
+
     Scanner scanner = new Scanner(System.in);
 
     private String nombre;
@@ -35,14 +35,12 @@ public class Entrenador {
     }
 
     private void inicializarEquipo() {
-        for (int i = 0; i < 6; i++) {
             this.pokemones.add(new Vulpix());
             this.pokemones.add(new Pikachu());
             this.pokemones.add(new Oddish());
             this.pokemones.add(new Mankey());
             this.pokemones.add(new Meowth());
             this.pokemones.add(new Spearow());
-        }
     }
 
     public Entrenador(String nombre, ArrayList<Pokemon> pokemones) {
@@ -94,6 +92,7 @@ public class Entrenador {
     }
 
     public void mostrarPokemones() {
+        System.out.println("Pokemones del Entrenador " + this.nombre);
         System.out.println("Pokémon de " + nombre + ":");
         for (Pokemon pokemon : pokemones) {
             System.out.println(pokemon.toString());
