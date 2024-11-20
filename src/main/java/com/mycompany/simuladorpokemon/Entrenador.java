@@ -12,18 +12,26 @@ import com.mycompany.simuladorpokemon.Pokemones.Poliwag;
 import com.mycompany.simuladorpokemon.Pokemones.Rhyhorn;
 import com.mycompany.simuladorpokemon.Pokemones.Spearow;
 import com.mycompany.simuladorpokemon.Pokemones.Vulpix;
+import com.mycompany.simuladorpokemon.Pokemones.Pikachu;
+import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
+import com.mycompany.simuladorpokemon.Pokemones.Rhyhorn;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Entrenador {
+    
+    Scanner scanner = new Scanner(System.in);
 
     private String nombre;
+    private Gimnasio gimnasio;
     private List<Pokemon> pokemones;
 
     public Entrenador(String nombre) {
         this.nombre = nombre;
         this.pokemones = new ArrayList<>();
         inicializarEquipo();
+        this.gimnasio = new Gimnasio();
     }
 
     private void inicializarEquipo() {
@@ -35,6 +43,21 @@ public class Entrenador {
             this.pokemones.add(new Meowth());
             this.pokemones.add(new Spearow());
         }
+    }
+
+    public Entrenador(String nombre, ArrayList<Pokemon> pokemones) {
+        this.nombre = nombre;
+        this.pokemones = pokemones;
+    }
+
+    public void EntrenarPokemon() {
+        System.out.println("Seleccione un Pokemon");
+        for (int i = 0; i < pokemones.size(); i++) {
+            System.out.println(i + 1 + " " + pokemones.get(i).getNombre());
+        }
+        int IndexPokemonElegido = scanner.nextInt() - 1;
+        Pokemon PokemonElegido = pokemones.get(IndexPokemonElegido);
+        gimnasio.EntrenarAtaque(PokemonElegido);
     }
 
     public boolean agregarPokemon(Pokemon pokemon) {
