@@ -42,8 +42,10 @@ public class GestionarEntrenadores {
 
     public void mostrarEntrenadores() {
         System.out.println("Entrenadores:");
+        int indice = 1;
         for (int i = 0; i < listaDeEntrenadores.size(); i++) {
-            System.out.println(i + ". " + listaDeEntrenadores.get(i).getNombre());
+            System.out.println(indice + ". " + listaDeEntrenadores.get(i).getNombre());
+            indice++;
         }
     }
 
