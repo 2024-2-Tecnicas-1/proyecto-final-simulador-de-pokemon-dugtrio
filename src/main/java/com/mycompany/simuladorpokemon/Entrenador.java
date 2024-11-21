@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Entrenador {
+public abstract class Entrenador {
 
     Scanner scanner = new Scanner(System.in);
 
-    private String nombre;
-    private Gimnasio gimnasio;
-    private List<Pokemon> pokemones;
+    protected String nombre;
+    protected Gimnasio gimnasio;
+    protected List<Pokemon> pokemones;
 
     public Entrenador(String nombre) {
         this.nombre = nombre;
@@ -21,18 +21,7 @@ public class Entrenador {
         this.gimnasio = new Gimnasio();
     }
 
-    private void inicializarEquipo() {
-            this.pokemones.add(new Vulpix());
-            this.pokemones.add(new Pikachu());
-            this.pokemones.add(new Oddish());
-            this.pokemones.add(new Mankey());
-            this.pokemones.add(new Meowth());
-            this.pokemones.add(new Spearow());
-    }
-
-    public Entrenador(String nombre, ArrayList<Pokemon> pokemones) {
-        this.nombre = nombre;
-        this.pokemones = pokemones;
+    protected void inicializarEquipo() {
     }
 
     public void EntrenarPokemon() {
