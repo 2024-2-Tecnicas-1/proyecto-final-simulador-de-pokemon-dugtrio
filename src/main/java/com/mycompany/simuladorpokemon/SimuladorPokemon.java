@@ -14,7 +14,6 @@ public class SimuladorPokemon {
     public static Pokedex pokedex = new Pokedex();
     public static GestionarEntrenadores gestionarEntrenadores = new GestionarEntrenadores(scanner);
 
-
     public static void main(String[] args) {
 
         System.out.println("Al ingresar al juego se le recomienda crear minimo 2 entrenadores primero, por ello: ");
@@ -163,7 +162,7 @@ public class SimuladorPokemon {
                             pokemones.add(new Spearow());
                         }
                     };
-                    
+
                     gestionarEntrenadores.getEntrenadores().add(nuevoEntrenador);
                     System.out.println("Entrenador " + nombreEntrenador + " registrado exitosamente.");
                     break;
@@ -177,7 +176,7 @@ public class SimuladorPokemon {
                     System.out.println("Lista de entrenadores:");
                     gestionarEntrenadores.mostrarEntrenadores();
                     if (seleccion > 0 && seleccion <= gestionarEntrenadores.getEntrenadores().size()) {
-                    Entrenador entrenadorSeleccionado = gestionarEntrenadores.getEntrenadores().get(seleccion - 1);
+                        Entrenador entrenadorSeleccionado = gestionarEntrenadores.getEntrenadores().get(seleccion - 1);
                         System.out.println("Has seleccionado a " + entrenadorSeleccionado.getNombre());
                         menuSeleccionEntrenador(entrenadorSeleccionado);
                     } else {
@@ -240,7 +239,7 @@ public class SimuladorPokemon {
                     break;
 
             }
-        } while (opcionGestion != 5);
+        } while (opcionGestion != 6);
     }
 
     private static void eliminarPokemonEntrenador(Entrenador entrenadorSeleccionado) {
@@ -251,21 +250,13 @@ public class SimuladorPokemon {
     }
 
     private static void agregarPokemonEntrenador(Entrenador entrenadorSeleccionado) {
-        System.out.println("Elige un opcion: ");
-        pokedex.getTodosLosPokemones();
-        System.out.println("1. Agregar un pokemon totalmente nuevo.");
-        System.out.println("Elegir un pokemon:");
-        int opcionAgregar = scanner.nextInt();
-        if (opcionAgregar == 1) {
-            anadirNuevoPokemonEntrenador(entrenadorSeleccionado);
-        } else if (opcionAgregar == 2) {
-            System.out.println("Elige un Pokémon para agregar:");
-            pokedex.mostrarTodosLosPokemones();
-            int eleccionAgregar = scanner.nextInt();
-            Pokemon nuevoPokemon = pokedex.getPokemones().get(eleccionAgregar - 1);
-            if (nuevoPokemon != null) {
-                entrenadorSeleccionado.agregarPokemon(nuevoPokemon);
-            }
+
+        System.out.println("Elige un Pokémon para agregar:");
+        pokedex.mostrarTodosLosPokemones();
+        int eleccionAgregar = scanner.nextInt();
+        Pokemon nuevoPokemon = pokedex.getPokemones().get(eleccionAgregar - 1);
+        if (nuevoPokemon != null) {
+            entrenadorSeleccionado.agregarPokemon(nuevoPokemon);
         } else {
             System.out.println("Opcion invalida, vuelvalo a intentar.");
         }
