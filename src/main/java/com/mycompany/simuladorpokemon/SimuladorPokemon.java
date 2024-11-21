@@ -40,7 +40,7 @@ public class SimuladorPokemon {
 
         int primerOpcion = 0;
         do {
-            System.out.println("Elige una opción:");
+            System.out.println("Elige una opcion:");
             System.out.println("1. Iniciar Batalla");
             System.out.println("2. Gestionar Entrenadores");
             System.out.println("3. Gestionar Pokemones");
@@ -68,35 +68,35 @@ public class SimuladorPokemon {
                     System.out.println("¡Gracias por jugar!");
                     break;
                 default:
-                    System.out.println("Opción no válida.");
+                    System.out.println("Opción no valida.");
             }
         } while (primerOpcion != 4);
     }
 
     private static void mostrarPokemonesDisponibles(Pokedex pokedex) {
-        System.out.println("Pokémon disponibles:");
+        System.out.println("Pokemon disponibles:");
         for (Pokemon pokemon : pokedex.getTodosLosPokemones()) { // Asumiendo que tienes un método que devuelve todos los Pokémon
             System.out.println(pokemon.getNombre()); // Mostrar solo el nombre
         }
     }
 
     private static Pokemon elegirPokemonEntrenador(Scanner scanner, List<Pokemon> equipo, String nombreEntrenador) {
-        System.out.println(nombreEntrenador + ", elige tu Pokémon:");
+        System.out.println(nombreEntrenador + ", elige tu Pokemon:");
         for (int i = 0; i < equipo.size(); i++) {
             System.out.println((i + 1) + ". " + equipo.get(i).getNombre());
         }
         int eleccion;
         while (true) {
-            System.out.print("Elige tu Pokémon (1-" + equipo.size() + "): ");
+            System.out.print("Elige tu Pokemon (1-" + equipo.size() + "): ");
             try {
                 eleccion = scanner.nextInt();
                 if (eleccion > 0 && eleccion <= equipo.size()) {
                     return equipo.get(eleccion - 1);
                 } else {
-                    System.out.println("Elección no válida, intenta de nuevo.");
+                    System.out.println("Eleccien no valida, intenta de nuevo.");
                 }
             } catch (Exception e) {
-                System.out.println("Entrada no válida. Por favor, ingresa un número.");
+                System.out.println("Entrada no valida. Por favor, ingresa un numero.");
                 scanner.next(); // Limpiar la entrada no válida
             }
         }
