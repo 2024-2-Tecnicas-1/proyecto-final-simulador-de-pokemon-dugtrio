@@ -37,7 +37,7 @@ public class Pokedex {
         pokemones.add(new Spearow());
     }
     
-    public void mostrarTodosLosPokemones(){
+    public void mostrarTodosLosPokemones() {
         for (Pokemon pokemon : pokemones) {
             System.out.println(pokemon.toString());
         }
@@ -45,5 +45,10 @@ public class Pokedex {
     
     public ArrayList<Pokemon> getPokemones() {
         return pokemones;
+    }
+
+    // Implementación del método getTodosLosPokemones
+    public ArrayList<Pokemon> getTodosLosPokemones() {
+        return new ArrayList<>(pokemones); // Retorna una copia de la lista de Pokémon
     }
 }

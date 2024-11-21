@@ -1,33 +1,46 @@
 package com.mycompany.simuladorpokemon;
 
 import com.mycompany.simuladorpokemon.Pokemones.*;
-import com.mycompany.simuladorpokemon.Batalla;
-import com.mycompany.simuladorpokemon.Entrenador;
-import com.mycompany.simuladorpokemon.Pokemones.Pokedex;
-import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
-
+import java.util.List;
 import java.util.Scanner;
 
 public class SimuladorPokemon {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         Pokedex pokedex = new Pokedex();
+
+        // Mostrar Pokémon disponibles
+        mostrarPokemonesDisponibles(pokedex);
 
         // Entrenador 1
         System.out.println("Ingresa el nombre del primer entrenador: ");
         String nombre1 = scanner.next();
-        Entrenador entrenador1 = new Entrenador1(nombre1);
+        Entrenador1 entrenador1 = new Entrenador1(nombre1); // Asumiendo que esta clase tiene sus Pokémon definidos
+
+        List<Pokemon> equipo1 = entrenador1.getPokemones(); // Obtener el equipo del Entrenador 1
 
         // Entrenador 2
         System.out.println("Ingresa el nombre del segundo entrenador: ");
         String nombre2 = scanner.next();
-        Entrenador entrenador2 = new Entrenador2(nombre2);
+        Entrenador2 entrenador2 = new Entrenador2(nombre2); // Asumiendo que esta clase tiene sus Pokémon definidos
+
+        List<Pokemon> equipo2 = entrenador2.getPokemones(); // Obtener el equipo del Entrenador 2
+
+        // Mostrar equipos iniciales
+        System.out.println("Equipo de " + nombre1 + ":");
+        for (Pokemon pokemon : equipo1) {
+            System.out.println(pokemon.getNombre()); // Mostrar Pokémon del Entrenador 1
+        }
+
+        System.out.println("Equipo de " + nombre2 + ":");
+        for (Pokemon pokemon : equipo2) {
+            System.out.println(pokemon.getNombre()); // Mostrar Pokémon del Entrenador 2
+        }
 
         int primerOpcion = 0;
         do {
-            System.out.println("Elige una opcion:");
+            System.out.println("Elige una opción:");
             System.out.println("1. Iniciar Batalla");
             System.out.println("2. Gestionar Entrenadores");
             System.out.println("3. Gestionar Pokemones");
@@ -35,98 +48,21 @@ public class SimuladorPokemon {
             primerOpcion = scanner.nextInt();
             switch (primerOpcion) {
                 case 1:
-                    // Selección de Pokémon y 
+                    // Elegir Pokémon del Entrenador 1
+                    Pokemon pokemon1 = elegirPokemonEntrenador(scanner, equipo1, nombre1);
+                    // Elegir Pokémon del Entrenador 2
+                    Pokemon pokemon2 = elegirPokemonEntrenador(scanner, equipo2, nombre2);
+
                     Batalla batalla = new Batalla();
-                    System.out.println("Entrenador 1, elige el Pokémon que deseas utilizar: ");
-
-                    pokedex.mostrarTodosLosPokemones(); 
-
-                    Pokemon pokemon1 = seleccionarPokemon(scanner, pokedex);
-
-                    System.out.println("Entrenador 2, elige el Pokémon que deseas utilizar: ");
-                    pokedex.mostrarTodosLosPokemones();
-
-                    Pokemon pokemon2 = seleccionarPokemon(scanner, pokedex);
-
                     Pokemon ganador = batalla.iniciarBatalla(pokemon1, pokemon2);
                     System.out.println("GANADOR: " + ganador.getNombre());
-                    scanner.nextInt();
+                    scanner.nextInt(); // Esperar a que el usuario presione una tecla
                     break;
                 case 2:
-                    
-                    // Clase entrenador
-                    System.out.println("Gestión de entrenador...");
-
-                    int opcionGestion;
-                    do {
-                        System.out.println("");
-                        System.out.println("1. Mostrar equipo");
-                        System.out.println("2. Agregar Pokémon al equipo");
-                        System.out.println("3. Reemplazar un Pokémon del equipo");
-                        System.out.println("4. Eliminar un Pokémon del equipo");
-                        System.out.println("5. Salir");
-                        System.out.print("Elige una opción: ");
-                        opcionGestion = scanner.nextInt();
-
-                        switch (opcionGestion) {
-                            case 1: // Mostrar el equipo
-                                entrenador1.mostrarPokemones();
-                                break;
-
-                            case 2: // Agregar un Pokémon
-                                System.out.println("Elige un opcion: ");
-                                System.out.println("1. Agregar un pokemon totalmente nuevo.");
-                                System.out.println("Elegir un pokemon:");
-                                int opcionAgregar = scanner.nextInt();
-                                if(opcionAgregar == 1){
-                                    
-                                }else if( opcionAgregar == 2){
-                                    System.out.println("Elige un Pokémon para agregar:");
-                                pokedex.mostrarTodosLosPokemones();
-                                int eleccionAgregar = scanner.nextInt();
-                                Pokemon nuevoPokemon = pokedex.getPokemones().get(eleccionAgregar - 1);
-                                if (nuevoPokemon != null) {
-                                    entrenador1.agregarPokemon(nuevoPokemon);
-                                }
-                                }else System.out.println("Opcion invalida, vuelvalo a intentar.");
-    
-                                break;
-
-                            case 3: // Reemplazar un Pokémon
-                                System.out.println("Elige el Pokémon que deseas reemplazar:");
-                                entrenador1.mostrarPokemones();
-                                int indiceReemplazo = scanner.nextInt() - 1;
-                                System.out.println("Elige el Pokemon que desees agregar:");
-                                pokedex.mostrarTodosLosPokemones();
-                                int eleccionReemplazo = scanner.nextInt();
-                                // Pokemon pokemonReemplazo = seleccionarPokemon(eleccionReemplazo);
-                                //if (pokemonReemplazo != null) {
-                                //    entrenador.reemplazarPokemon(indiceReemplazo, pokemonReemplazo);
-                                // }
-                                break;
-
-                            case 4: // Eliminar un Pokémon
-                                System.out.println("Elige la posición (1-6) del Pokémon que deseas eliminar:");
-                                entrenador1.mostrarPokemones();
-                                int indiceEliminar = scanner.nextInt() - 1;
-                                entrenador1.eliminarPokemon(indiceEliminar);
-                                break;
-
-                            case 5: // Salir
-                                System.out.println("¡Gracias por jugar!");
-                                break;
-                            default:
-                                System.out.println("Opción no válida. Inténtalo de nuevo.");
-                                break;
-
-                        }
-                    } while (opcionGestion != 5);
-
+                    gestionarEntrenador(scanner, entrenador1);
                     break;
                 case 3:
-                    // Gestión de entrenador 2
-                    System.out.println("Gestión de " + entrenador2.getNombre() + "...");
-                    // Aquí puedes implementar la gestión del entrenador como en tu código original
+                    gestionarEntrenador(scanner, entrenador2);
                     break;
                 case 4:
                     System.out.println("¡Gracias por jugar!");
@@ -137,20 +73,36 @@ public class SimuladorPokemon {
         } while (primerOpcion != 4);
     }
 
-    private static Pokemon seleccionarPokemon(Scanner scanner, Pokedex pokedex) {
-        Pokemon pokemon;
-        int eleccion;
-        do {
-            System.out.print("Elige tu Pokémon: ");
-            eleccion = scanner.nextInt();
+    private static void mostrarPokemonesDisponibles(Pokedex pokedex) {
+        System.out.println("Pokémon disponibles:");
+        for (Pokemon pokemon : pokedex.getTodosLosPokemones()) { // Asumiendo que tienes un método que devuelve todos los Pokémon
+            System.out.println(pokemon.getNombre()); // Mostrar solo el nombre
+        }
+    }
 
-            if (eleccion > 0 && eleccion <= pokedex.getPokemones().size()) {
-                pokemon = pokedex.getPokemones().get(eleccion - 1);
-                System.out.println("Has elegido " + pokemon.getNombre());
-                return pokemon;
-            } else {
-                System.out.println("Elección no válida, intenta de nuevo.");
+    private static Pokemon elegirPokemonEntrenador(Scanner scanner, List<Pokemon> equipo, String nombreEntrenador) {
+        System.out.println(nombreEntrenador + ", elige tu Pokémon:");
+        for (int i = 0; i < equipo.size(); i++) {
+            System.out.println((i + 1) + ". " + equipo.get(i).getNombre());
+        }
+        int eleccion;
+        while (true) {
+            System.out.print("Elige tu Pokémon (1-" + equipo.size() + "): ");
+            try {
+                eleccion = scanner.nextInt();
+                if (eleccion > 0 && eleccion <= equipo.size()) {
+                    return equipo.get(eleccion - 1);
+                } else {
+                    System.out.println("Elección no válida, intenta de nuevo.");
+                }
+            } catch (Exception e) {
+                System.out.println("Entrada no válida. Por favor, ingresa un número.");
+                scanner.next(); // Limpiar la entrada no válida
             }
-        } while (true);
+        }
+    }
+
+    private static void gestionarEntrenador(Scanner scanner, Entrenador entrenador) {
+        System.out.println("Gestión de " + entrenador.getNombre() + "...");
     }
 }

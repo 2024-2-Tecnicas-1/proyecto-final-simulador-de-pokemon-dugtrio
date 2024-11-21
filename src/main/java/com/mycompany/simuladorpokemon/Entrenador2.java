@@ -16,7 +16,10 @@ public class Entrenador2 extends Entrenador {
     protected void inicializarEquipo() {
         this.pokemones.add(new Vulpix());
         this.pokemones.add(new Pikachu());
-        this.pokemones.add(new Oddish());
+        this.pokemones.add(new Poliwag());
+        this.pokemones.add(new Koffing());
+        this.pokemones.add(new Magnemite());
+        this.pokemones.add(new Drowzee());
     }
 
 }

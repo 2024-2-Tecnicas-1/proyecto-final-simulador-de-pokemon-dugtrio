@@ -15,7 +15,7 @@ public class Entrenador1 extends Entrenador {
     @Override
     protected void inicializarEquipo() {
         this.pokemones.add(new Vulpix());
-        this.pokemones.add(new Pikachu());
+        this.pokemones.add(new Rhyhorn());
         this.pokemones.add(new Oddish());
         this.pokemones.add(new Mankey());
         this.pokemones.add(new Meowth());
