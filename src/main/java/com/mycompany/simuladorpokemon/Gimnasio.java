@@ -18,7 +18,7 @@ public class Gimnasio {
     }
 
     public void EntrenarAtaque(Pokemon pokemon) {
-        if (ValidacionDiezMinutos(pokemon) > -1) {
+        if (ValidacionDiezMinutos(pokemon) > 1) {
             pokemon.incrementarAtaque();
         } else {
             System.out.println("Aun no puede entrenar");
@@ -27,7 +27,7 @@ public class Gimnasio {
     }
 
     public void EntrenarSalud(Pokemon pokemon) {
-        if (ValidacionDiezMinutos(pokemon) > -1) {
+        if (ValidacionDiezMinutos(pokemon) > 1) {
             pokemon.incrementarSalud();
         } else {
             System.out.println("Aun no puede entrenar");
