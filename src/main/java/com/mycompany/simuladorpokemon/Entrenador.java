@@ -21,8 +21,7 @@ public abstract class Entrenador {
         this.gimnasio = new Gimnasio();
     }
 
-    protected void inicializarEquipo() {
-    }
+    protected abstract void inicializarEquipo();
 
     public void EntrenarPokemon() {
         System.out.println("Seleccione un Pokemon");

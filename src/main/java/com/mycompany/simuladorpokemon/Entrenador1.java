@@ -12,7 +12,6 @@ public class Entrenador1 extends Entrenador {
         this.gimnasio = new Gimnasio();
     }
 
-
     @Override
     protected void inicializarEquipo() {
         this.pokemones.add(new Vulpix());
@@ -20,7 +19,10 @@ public class Entrenador1 extends Entrenador {
         this.pokemones.add(new Oddish());
         this.pokemones.add(new Mankey());
         this.pokemones.add(new Meowth());
-        this.pokemones.add(new Spearow());
+        this.pokemones.add(new Spearow());    
     }
+
+
+  
 
 }

@@ -38,7 +38,11 @@ public class SimuladorPokemon {
                     // Selección de Pokémon y 
                     Batalla batalla = new Batalla();
                     System.out.println("Entrenador 1, elige el Pokémon que deseas utilizar: ");
+<<<<<<< HEAD
                     pokedex.mostrarTodosLosPokemones();
+=======
+                    pokedex.mostrarTodosLosPokemones(); 
+>>>>>>> origin/master
 
                     Pokemon pokemon1 = seleccionarPokemon(scanner, pokedex);
 
