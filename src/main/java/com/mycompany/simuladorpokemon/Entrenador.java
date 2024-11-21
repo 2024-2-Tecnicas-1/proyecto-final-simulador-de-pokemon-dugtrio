@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class Entrenador{
+public abstract class Entrenador {
 
     protected String nombre;
     protected Gimnasio gimnasio;
@@ -16,7 +16,7 @@ public abstract class Entrenador{
     public Entrenador(String nombre) {
         this(nombre, new Scanner(System.in)); // Usa la entrada estándar por defecto.
     }
-    
+
     public Entrenador(String nombre, Scanner scanner) {
         this.nombre = nombre;
         this.pokemones = new ArrayList<>();
@@ -29,38 +29,20 @@ public abstract class Entrenador{
     protected abstract void inicializarEquipo();
 
     Scanner SCAN = new Scanner(System.in);
+
     public void entrenarPokemon() {
         if (pokemones.isEmpty()) {
             System.out.println("No tienes Pokemon para entrenar.");
             return;
-        }else{
+        } else {
             System.out.println("Seleccione un Pokemon");
-        for(int i = 0; i < pokemones.size(); i++){
-            System.out.println(i+1 + " " + pokemones.get(i).getNombre());
-        }
-        int IndexPokemonElegido = SCAN.nextInt() - 1;
-        Pokemon PokemonElegido = pokemones.get(IndexPokemonElegido);
-        gimnasio.EntrenarAtaque(PokemonElegido);
-        gimnasio.EntrenarSalud(PokemonElegido);
-    }
-
-        System.out.println("Seleccione un Pokemon:");
-        for (int i = 0; i < pokemones.size(); i++) {
-            System.out.println((i + 1) + ". " + pokemones.get(i).getNombre());
+            mostrarPokemones();
+            int IndexPokemonElegido = SCAN.nextInt();
+            Pokemon PokemonElegido = pokemones.get(IndexPokemonElegido - 1);
+            gimnasio.EntrenarAtaque(PokemonElegido);
+            gimnasio.EntrenarSalud(PokemonElegido);
         }
 
-        try {
-            int indicePokemonElegido = scanner.nextInt() - 1;
-            if (indicePokemonElegido < 0 || indicePokemonElegido >= pokemones.size()) {
-                System.out.println("Indice no valido. Seleccion cancelada.");
-                return;
-            }
-            Pokemon pokemonElegido = pokemones.get(indicePokemonElegido);
-            gimnasio.entrenarAtaque(pokemonElegido);
-        } catch (Exception e) {
-            System.out.println("Entrada no valida. Por favor, ingresa un numero.");
-            scanner.next(); // Limpiar el buffer
-        }
     }
 
     public boolean agregarPokemon(Pokemon pokemon) {
