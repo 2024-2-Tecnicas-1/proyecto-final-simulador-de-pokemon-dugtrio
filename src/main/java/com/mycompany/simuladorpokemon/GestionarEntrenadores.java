@@ -1,5 +1,6 @@
 package com.mycompany.simuladorpokemon;
 
+import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -77,7 +78,21 @@ public class GestionarEntrenadores {
             }
         }
     }
-
+        private String nombre;
+        private ArrayList<Pokemon> pokemones;
+        private Gimnasio gimnasio;
+        Scanner SCAN = new Scanner(System.in);
+      public void EntrenarPokemon(){
+        System.out.println("Seleccione un Pokemon");
+        for(int i = 0; i < pokemones.size(); i++){
+            System.out.println(i+1 + " " + pokemones.get(i).getNombre());
+        }
+        int IndexPokemonElegido = SCAN.nextInt() - 1;
+        Pokemon PokemonElegido = pokemones.get(IndexPokemonElegido);
+        gimnasio.EntrenarAtaque(PokemonElegido);
+    }
+            
+            
     public List<Entrenador> getEntrenadores() {
         return entrenadores; // Devuelve la lista de entrenadores
     }

@@ -95,7 +95,7 @@ class EntrenadorTest {
     void testEntrenarPokemon() {
         pokemon1.sethoraUltimoEntrenamiento(LocalTime.now().minusMinutes(20));
         entrenador.agregarPokemon(pokemon1);
-        entrenador.EntrenarPokemon();
+        entrenador.entrenarPokemon();
 
         // Verifica que el ataque del primer Pokémon haya incrementado.
         assertEquals(48, pokemon1.getPuntosDeAtaque(), "El ataque de P1 debería haber incrementado.");
