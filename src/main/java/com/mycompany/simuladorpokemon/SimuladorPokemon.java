@@ -13,6 +13,7 @@ public class SimuladorPokemon {
     public static Scanner scanner = new Scanner(System.in);
     public static Pokedex pokedex = new Pokedex();
     public static GestionarEntrenadores gestionarEntrenadores = new GestionarEntrenadores(scanner);
+    
 
     public static void main(String[] args) {
 
@@ -229,7 +230,8 @@ public class SimuladorPokemon {
                     break;
 
                 case 5:
-                    // rAULLLLL Y SU ENTRENAR POKEMONES 
+                        
+                        entrenadorSeleccionado.entrenarPokemon();
                     break;
                 case 6:
                     // Salir

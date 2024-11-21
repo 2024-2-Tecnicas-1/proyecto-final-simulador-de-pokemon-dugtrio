@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class Entrenador {
+public abstract class Entrenador{
 
     protected String nombre;
     protected Gimnasio gimnasio;
@@ -28,11 +28,21 @@ public abstract class Entrenador {
 
     protected abstract void inicializarEquipo();
 
+    Scanner SCAN = new Scanner(System.in);
     public void entrenarPokemon() {
         if (pokemones.isEmpty()) {
             System.out.println("No tienes Pokemon para entrenar.");
             return;
+        }else{
+            System.out.println("Seleccione un Pokemon");
+        for(int i = 0; i < pokemones.size(); i++){
+            System.out.println(i+1 + " " + pokemones.get(i).getNombre());
         }
+        int IndexPokemonElegido = SCAN.nextInt() - 1;
+        Pokemon PokemonElegido = pokemones.get(IndexPokemonElegido);
+        gimnasio.EntrenarAtaque(PokemonElegido);
+        gimnasio.EntrenarSalud(PokemonElegido);
+    }
 
         System.out.println("Seleccione un Pokemon:");
         for (int i = 0; i < pokemones.size(); i++) {
