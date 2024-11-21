@@ -112,7 +112,7 @@ public abstract class Pokemon {
     
     @Override
     public String toString() {
-        return "Pokemon " + nombre + "tiene , salud : " + salud + ", ataque : " + ataque + " y tipo : " + tipo + '}';
+        return "Pokemon " + nombre + " tiene , salud : " + salud + ", ataque : " + ataque + " y tipo : " + tipo + '}';
     }
     
 }

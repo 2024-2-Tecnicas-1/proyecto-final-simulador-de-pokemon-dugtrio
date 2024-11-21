@@ -15,10 +15,15 @@ public abstract class Entrenador {
     protected List<Pokemon> pokemones;
 
     public Entrenador(String nombre) {
+        this(nombre, new Scanner(System.in)); // Usa la entrada estándar por defecto.
+    }
+    
+    public Entrenador(String nombre, Scanner scanner) {
         this.nombre = nombre;
         this.pokemones = new ArrayList<>();
         inicializarEquipo();
         this.gimnasio = new Gimnasio();
+        this.scanner = scanner;
     }
 
     protected abstract void inicializarEquipo();
