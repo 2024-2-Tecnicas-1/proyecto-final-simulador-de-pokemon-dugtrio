@@ -9,36 +9,36 @@ import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
 import java.util.Scanner;
 
 public class SimuladorPokemon {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        // Crear la Pokedex
+
         Pokedex pokedex = new Pokedex();
-        Batalla batalla = new Batalla();
 
         // Entrenador 1
         System.out.println("Ingresa el nombre del primer entrenador: ");
         String nombre1 = scanner.next();
-        Entrenador entrenador1 = new Entrenador(nombre1);
+        Entrenador entrenador1 = new Entrenador1(nombre1);
 
         // Entrenador 2
         System.out.println("Ingresa el nombre del segundo entrenador: ");
         String nombre2 = scanner.next();
-        Entrenador entrenador2 = new Entrenador(nombre2);
+        Entrenador entrenador2 = new Entrenador2(nombre2);
 
         int primerOpcion = 0;
         do {
             System.out.println("Elige una opcion:");
-            System.out.println("1. Seleccionar Pokémon y empezar batalla");
-            System.out.println("2. Gestionar Entrenador 1");
-            System.out.println("3. Gestionar Entrenador 2");
+            System.out.println("1. Iniciar Batalla");
+            System.out.println("2. Gestionar Entrenadores");
+            System.out.println("3. Gestionar Pokemones");
             System.out.println("4. Salir del Juego");
             primerOpcion = scanner.nextInt();
             switch (primerOpcion) {
                 case 1:
-                    // Selección de Pokémon y batalla
+                    // Selección de Pokémon y 
+                    Batalla batalla = new Batalla();
                     System.out.println("Entrenador 1, elige el Pokémon que deseas utilizar: ");
-                    pokedex.mostrarTodosLosPokemones(); 
+                    pokedex.mostrarTodosLosPokemones();
 
                     Pokemon pokemon1 = seleccionarPokemon(scanner, pokedex);
 
