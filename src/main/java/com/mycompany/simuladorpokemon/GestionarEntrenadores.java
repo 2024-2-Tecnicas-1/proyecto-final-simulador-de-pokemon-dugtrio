@@ -1,6 +1,7 @@
 package com.mycompany.simuladorpokemon;
 
 import com.mycompany.simuladorpokemon.Pokemones.Pokemon;
+import static com.mycompany.simuladorpokemon.SimuladorPokemon.gestionarEntrenadores;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -32,8 +33,8 @@ public class GestionarEntrenadores {
         System.out.print("Ingrese el indice del entrenador a eliminar: ");
         int indice = scanner.nextInt();
         scanner.nextLine(); // Limpiar el buffer
-        if (indice >= 0 && indice < listaDeEntrenadores.size()) {
-            listaDeEntrenadores.remove(indice);
+        if (indice > 0 && indice <= listaDeEntrenadores.size()) {
+            listaDeEntrenadores.remove(indice- 1);
             System.out.println("Entrenador eliminado.");
         } else {
             System.out.println("Indice no valido.");
@@ -65,6 +66,7 @@ public class GestionarEntrenadores {
                     agregarEntrenador();
                     break;
                 case 2:
+                    mostrarEntrenadores();
                     eliminarEntrenador();
                     break;
                 case 3:

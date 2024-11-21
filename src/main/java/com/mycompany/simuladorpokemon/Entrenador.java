@@ -86,8 +86,10 @@ public abstract class Entrenador {
 
     public void mostrarPokemones() {
         System.out.println("Pokemon de " + this.nombre + ":");
+        int indice = 1;
         for (Pokemon pokemon : pokemones) {
-            System.out.println(pokemon.toString());
+            System.out.println(indice + " ." + pokemon.toString());
+            indice++;
         }
     }
 

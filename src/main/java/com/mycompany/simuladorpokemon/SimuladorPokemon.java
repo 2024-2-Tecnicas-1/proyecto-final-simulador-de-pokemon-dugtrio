@@ -172,6 +172,7 @@ public class SimuladorPokemon {
                     break;
                 case 3:
                     System.out.println("Selecciona un entrenador:");
+                    gestionarEntrenadores.mostrarEntrenadores();
                     int seleccion = scanner.nextInt();
                     System.out.println("Lista de entrenadores:");
                     gestionarEntrenadores.mostrarEntrenadores();
