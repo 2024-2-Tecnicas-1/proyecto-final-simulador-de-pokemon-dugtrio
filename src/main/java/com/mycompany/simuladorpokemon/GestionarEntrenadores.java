@@ -5,29 +5,25 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GestionarEntrenadores {
-    private List<Entrenador> entrenadores;
-    private Scanner scanner;
+
+    private static List<Entrenador> listaDeEntrenadores = new ArrayList<>();
+    public Scanner scanner;
 
     public GestionarEntrenadores(Scanner scanner) {
-        this.entrenadores = new ArrayList<>();
+        this.listaDeEntrenadores = new ArrayList<>();
         this.scanner = scanner;
     }
 
     public void agregarEntrenador() {
+        System.out.println("");
         System.out.print("Ingrese el nombre del nuevo entrenador: ");
         String nombre = scanner.nextLine();
-        System.out.print("Seleccione el tipo de entrenador (1: Entrenador1, 2: Entrenador2): ");
-        int tipo = scanner.nextInt();
-        scanner.nextLine(); // Limpiar el buffer
+        System.out.println("Se le agregaron Pokemones determinados, ir a gestion de entrenadores, para editarlo.");
 
         Entrenador nuevoEntrenador;
-        if (tipo == 1) {
-            nuevoEntrenador = new Entrenador1(nombre, scanner);
-        } else {
-            nuevoEntrenador = new Entrenador2(nombre, scanner);
-        }
+        nuevoEntrenador = new Entrenador1(nombre, scanner);
 
-        entrenadores.add(nuevoEntrenador);
+        listaDeEntrenadores.add(nuevoEntrenador);
         System.out.println("Entrenador " + nombre + " agregado.");
     }
 
@@ -35,8 +31,8 @@ public class GestionarEntrenadores {
         System.out.print("Ingrese el indice del entrenador a eliminar: ");
         int indice = scanner.nextInt();
         scanner.nextLine(); // Limpiar el buffer
-        if (indice >= 0 && indice < entrenadores.size()) {
-            entrenadores.remove(indice);
+        if (indice >= 0 && indice < listaDeEntrenadores.size()) {
+            listaDeEntrenadores.remove(indice);
             System.out.println("Entrenador eliminado.");
         } else {
             System.out.println("Indice no valido.");
@@ -45,13 +41,14 @@ public class GestionarEntrenadores {
 
     public void mostrarEntrenadores() {
         System.out.println("Entrenadores:");
-        for (int i = 0; i < entrenadores.size(); i++) {
-            System.out.println(i + ". " + entrenadores.get(i).getNombre());
+        for (int i = 0; i < listaDeEntrenadores.size(); i++) {
+            System.out.println(i + ". " + listaDeEntrenadores.get(i).getNombre());
         }
     }
 
     public void gestionar() {
         while (true) {
+            System.out.println("");
             System.out.println("1. Agregar Entrenador");
             System.out.println("2. Eliminar Entrenador");
             System.out.println("3. Mostrar Entrenadores");
@@ -79,6 +76,6 @@ public class GestionarEntrenadores {
     }
 
     public List<Entrenador> getEntrenadores() {
-        return entrenadores; // Devuelve la lista de entrenadores
+        return listaDeEntrenadores; // Devuelve la lista de entrenadores
     }
 }

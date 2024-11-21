@@ -3,6 +3,7 @@ package com.mycompany.simuladorpokemon.Pokemones;
 import java.util.ArrayList;
 
 public class Pokedex {
+
     private ArrayList<Pokemon> pokemones;
 
     public Pokedex() {
@@ -23,13 +24,17 @@ public class Pokedex {
         pokemones.add(new Rhyhorn());
         pokemones.add(new Spearow());
     }
-    
+
     public void mostrarTodosLosPokemones() {
-        for (Pokemon pokemon : pokemones) {
-            System.out.println(pokemon.toString());
+        for (int i = 0; i < pokemones.size(); i++) {
+            System.out.println((i + 1) + ". " + pokemones.get(i));
         }
     }
-    
+
+    public void agregarPokemones(Pokemon nuevoPokemon) {
+        pokemones.add(nuevoPokemon);
+    }
+
     public ArrayList<Pokemon> getTodosLosPokemones() {
         return new ArrayList<>(pokemones); // Retorna una copia de la lista de Pokémon
     }
@@ -42,4 +47,9 @@ public class Pokedex {
         }
         return null; // Retorna null si no se encuentra
     }
+
+    public ArrayList<Pokemon> getPokemones() {
+        return pokemones;
+    }
+
 }
